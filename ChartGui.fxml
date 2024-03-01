@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="613.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ba_transaktionen.ControllerCharts">
+    <content>
+        <GridPane fx:id="gridPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="947.0" prefWidth="585.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="349.0" minWidth="10.0" prefWidth="349.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="287.5" minWidth="10.0" prefWidth="236.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="70.0" minHeight="70.0" prefHeight="70.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="300.5" minHeight="122.5" prefHeight="209.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="417.5" minHeight="239.5" prefHeight="315.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="318.0" minHeight="270.0" prefHeight="315.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Label prefHeight="44.0" prefWidth="171.0" text="Simulationsauswertungen">
+                    <GridPane.margin>
+                        <Insets bottom="20.0" left="40.0" top="10.0" />
+                    </GridPane.margin>
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+                    <children>
+                        <Label text="Anteil Teilnehmerverhalten">
+                            <VBox.margin>
+                                <Insets bottom="20.0" left="40.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Pane fx:id="anteilTeilnehmer" prefHeight="193.0" prefWidth="228.0">
+                            <VBox.margin>
+                                <Insets left="80.0" right="30.0" top="20.0" />
+                            </VBox.margin>
+                            <padding>
+                                <Insets bottom="20.0" left="30.0" />
+                            </padding></Pane>
+                    </children>
+                    <GridPane.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </GridPane.margin>
+                </VBox>
+                <VBox fx:id="vboxAT" prefHeight="139.0" prefWidth="292.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <children>
+                        <Label text="Anteil Transaktionen">
+                            <VBox.margin>
+                                <Insets left="40.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="anteilTransaktionen" alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="168.0" textAlignment="CENTER" textFill="#0d26e1">
+                            <VBox.margin>
+                                <Insets left="40.0" top="20.0" />
+                            </VBox.margin>
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </children>
+                    <GridPane.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </GridPane.margin>
+                </VBox>
+                <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2">
+                    <children>
+                        <Label text="Coins im Umlauf">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="40.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Pane fx:id="coinsUmlauf" maxHeight="-Infinity" prefHeight="300.0" prefWidth="382.0">
+                            <VBox.margin>
+                                <Insets left="40.0" top="20.0" />
+                            </VBox.margin>
+                        </Pane>
+                    </children>
+                    <GridPane.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </GridPane.margin>
+                </VBox>
+                <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+                    <children>
+                        <Label text="Währungskurs">
+                            <VBox.margin>
+                                <Insets bottom="10.0" left="40.0" top="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <Pane fx:id="coinsDurchschnitt" maxHeight="-Infinity" prefHeight="300.0" prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets left="40.0" top="20.0" />
+                            </VBox.margin>
+                        </Pane>
+                    </children>
+                    <GridPane.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                    </GridPane.margin>
+                </VBox>
+            </children>
+        </GridPane>
+    </content>
+</ScrollPane>
