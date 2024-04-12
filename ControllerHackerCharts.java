@@ -21,6 +21,8 @@ public class ControllerHackerCharts {
     Label teilnehmerLabel;
     @FXML
     Pane teilnehmerPane;
+    @FXML
+    Label resetInfo;
 
     //Linien Diagramm für Coins des Hackers
     LineChart<Number, Number> lineChartHacker = new LineChart<>(new NumberAxis(), new NumberAxis());
@@ -39,6 +41,7 @@ public class ControllerHackerCharts {
     @FXML
     public void initialize() {
         teilnehmerLabel.setText("Auswirkungen auf die Teilnehmer \n rot = gehackt, grün = geschützt, grau = neutral");
+        resetInfo.setText("Klicke auf 'Reset' und 'Start' um \n die Charts angezeigt zu bekommen");
     }
 
     public void reset(){

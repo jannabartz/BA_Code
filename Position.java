@@ -66,6 +66,7 @@ public class Position {
 
     /**
      * Methode zum Prüfen, ob ein Punkt mit einem anderen kollidiert
+     *
      * @param andere anderer Punkt zum prüfen
      * @return wenn der Punkt sich im Umfang von 2* dem Radius des anderen befindet, wird true zurückgegeben
      */

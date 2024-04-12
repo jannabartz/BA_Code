@@ -48,13 +48,13 @@ public class Controller {
     int Teilnehmeranzahl = 50;
     //Wahrscheinlichkeit, dass eine Transaktion stattfindet oder ein Hacker erfolgreich ist
     double WkeitTransHackErfolg = 0.5;
-    //Prüfung ob Hackeransicht aktiv
+    //Prüfung ob Hackeransicht aktiv ist
     boolean hackerSzeneAktiv = false;
-    //Uhr, die für die Simulation notwendig ist
+    //Uhr, die für die für die Zeit in der Simulation notwendig ist
     private SimulationsUhr uhr;
-    //Controller für die Simualationsauswertung der Transaktionen
+    //Controller für das Diagrammfenster der Transaktionen
     ControllerCharts chartFenster;
-    //Controller für die Simulationsauswertung des Hackers
+    //Controller für das Diagrammfenster bei der Hackeransicht
     ControllerHackerCharts hackerFenster;
     //stage für das Chartfenster der Transaktionen
     Stage stageCharts;
@@ -126,6 +126,7 @@ public class Controller {
         world.setBackground(new Background(new BackgroundFill(Color.WHITE,null,null)));
     }
 
+    //Methode, die aufgerufen wird, beim Drücken des Reset-Buttons
     @FXML
     public void reset(){
         //Simulation soll stoppen
@@ -134,7 +135,8 @@ public class Controller {
         tickText.setText(""+ uhr.getTicks());
         //Punkte sollen nicht mehr angezeigt werden
         world.getChildren().clear();
-        //muss davor, damit Teilnehmeranzahl auch richtig übergeben wird
+        //damit Zähler wieder von 0 beginnt
+        Person.transaktionsPaar = 0;
         //Slidereinstellungen werden übernommen
         setAnzahl();
         setWkeitTransHack();
@@ -185,11 +187,12 @@ public class Controller {
         disableButton(false,true,false);
     }
 
+    //Methode, die dauerhaft während des Laufens der Simulation aufgerufen wird
     @FXML
     public void step(){
         simulation.bewegen();
-        simulation.transaktionAbschließen();
         simulation.prüfeKollision(WkeitTransHackErfolg, hackerSzeneAktiv);
+        simulation.transaktionAbschließen();
         simulation.malen();
         uhr.tick();
         tickText.setText(""+ uhr.getTicks());
@@ -207,7 +210,7 @@ public class Controller {
      * Punkt rot (Geld geht an Hacker) oder bleibt neutral
      * wenn roter Punkt berührt wird, dann wird der berührte Punkte grün (roter Punkt warnt und
      * anderer schützt sich besser vor Angriffen) oder bleibt neutral
-     * grüne Punkte sind geschützt können nicht mehr angegriffen werden
+     * grüne Punkte sind geschützt und können nicht mehr angegriffen werden
      */
     @FXML
     public void hackerOn(){
@@ -237,7 +240,7 @@ public class Controller {
         }
     }
 
-    //neues Fenster mit Charts soll sich öffnen, um die Übersichtlichkeit zu verbessern
+    //neues Fenster mit Charts soll sich seperat zur Simulation öffnen, um die Übersichtlichkeit zu verbessern
     @FXML
     void chartsAnzeigen(ActionEvent event){
         //man muss erst reset drücken, damit charts angezeigt werden

@@ -55,12 +55,12 @@
                     <children>
                         <Label text="Anteil Transaktionen">
                             <VBox.margin>
-                                <Insets left="40.0" />
+                                <Insets top="50.0" />
                             </VBox.margin>
                         </Label>
                         <Label fx:id="anteilTransaktionen" alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="168.0" textAlignment="CENTER" textFill="#0d26e1">
                             <VBox.margin>
-                                <Insets left="40.0" top="20.0" />
+                                <Insets top="20.0" />
                             </VBox.margin>
                             <font>
                                 <Font name="System Bold" size="18.0" />
@@ -105,6 +105,11 @@
                         <Insets bottom="10.0" top="10.0" />
                     </GridPane.margin>
                 </VBox>
+                <Label fx:id="resetInfo" prefHeight="50.0" prefWidth="205.0" GridPane.columnIndex="1">
+                    <GridPane.margin>
+                        <Insets top="20.0" />
+                    </GridPane.margin>
+                </Label>
             </children>
         </GridPane>
     </content>

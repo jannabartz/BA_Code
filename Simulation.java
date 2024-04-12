@@ -15,7 +15,7 @@ public class Simulation {
         for(int i=0; i<personenanzahl; i++){
             personenListe.add(new Person(Zustand.neutral, welt));
         }
-        //bei der Hackeransicht, muss es einen nichtneutralen geben, den Hacker
+        //bei der Hackeransicht, muss es einen Nichtneutralen geben, den Hacker
         if(hacker){
             personenListe.add(new Person(Zustand.hacker,welt));
         }
@@ -59,11 +59,13 @@ public class Simulation {
                     else {
                         //hier ist die WkeitTransHackErfolg die Wahrscheinlichkeit, dass eine Transaktion stattfindet
                         person1.kollisionCheck(person2, WkeitTransHackErfolg);
+                        malen();
                     }
                 }
             }
         }
     }
+
 
     public void transaktionAbschließen(){
         for(Person person1:personenListe){

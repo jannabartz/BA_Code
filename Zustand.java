@@ -20,10 +20,10 @@ public enum Zustand {
         public Color getColor(){ return Color.BLACK;}
     },
     hackerangriff{
-        public Color getColor(){ return Color.DARKRED;}
+        public Color getColor(){ return Color.LIGHTCORAL;}
     },
     hackerabwehr{
-        public Color getColor(){ return Color.DARKGREEN;}
+        public Color getColor(){ return Color.LIGHTGREEN;}
     };
 
     public abstract Color getColor();

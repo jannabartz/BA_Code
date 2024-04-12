@@ -7,8 +7,8 @@ import javafx.scene.shape.Circle;
 public class Person {
 
     public static int radius = 5;
-    //3 Sekunden um Transaktion durchzuführen, aber wir zählen 50-Mal eine Sekunde, deshalb *50
-    public static int transaktionszeit = 3*50;
+    //5 Ticks/Steps um Transaktion durchzuführen
+    public static int transaktionszeit = 20;
     //in welchem Radius (vom Regler manipulierbar) bewegen sich die Punkte
     public static int bewegungsradius = 200;
     //Anzahl der Transaktionen die grade stattfinden (also blau leuchten), für Anteildiagramm
@@ -21,6 +21,8 @@ public class Person {
     public static int teilnehmerAbwehr;
     //Anzahl Teilnehmer, die gehackt wurden
     public static int teilnehmerGehackt;
+    //Zahl, um Personenpaare zu identifizieren, die eine Transaktion durchführen
+    public static int transaktionsPaar = 0;
 
     //Zustand des Teilnehmers
     private Zustand zustand;
@@ -36,6 +38,8 @@ public class Person {
     private Pane welt;
     //Zähler um zu gucken wie lange eine Transaktion dauert
     private int transaktionszähler = 0;
+    //Zahl die jeder Person zugeordnet wird, um den Transaktionspartner zu finden
+    private int paarZahl;
 
     public Person (Zustand zustand, Pane welt){
         this.zustand = zustand;
@@ -56,6 +60,7 @@ public class Person {
     public void setZustand(Zustand zustand){
         this.zustand = zustand;
         kreis.setFill(zustand.getColor());
+        //System.out.println(zustand.getColor());
     }
 
     public void bewegen(){
@@ -83,6 +88,18 @@ public class Person {
             if(andere.getZustand()== Zustand.neutral && zustand == Zustand.neutral && zufallszahl<WkeitTransaktion){
                 setZustand(Zustand.transaktion);
                 andere.setZustand(Zustand.transaktion);
+                //System.out.println("Ich bin in Kollision");
+                if(this.paarZahl==0 && andere.paarZahl==0){
+                    System.out.println("erste Transaktion");
+                }
+                else {
+                    System.out.println("zweite Transaktion");
+                }
+                this.paarZahl = transaktionsPaar;
+                andere.paarZahl = transaktionsPaar;
+                //System.out.println(this.paarZahl + " andere:" + andere.paarZahl + " zaehler:" + transaktionsPaar);
+                //System.out.println(this.getZustand() + " andere:" + andere.getZustand());
+                transaktionsPaar++;
                 //damit Anteil der Personen berechnet werden kann, die in einer Transaktion sind
                 summePersonenTransaktionen = summePersonenTransaktionen +2;
                 //bei jeder Transaktion geraten 1-5 Coins in Umlauf, diese werden addiert, sodass mit zunehmenden
@@ -120,19 +137,25 @@ public class Person {
     /**
      * Methode zum Beenden der Transaktion
      *
-     * @param other Punkt mit dem Transaktion durchgeführt wurde
+     * @param andere Punkt mit dem Transaktion durchgeführt wurde
+     * verwendet einen Zähler, um den Zeitraum der Transaktion zu bestimmen
      */
-    public void transaktionAbschließen(Person other){
-        if(zustand == Zustand.transaktion && other.getZustand()== Zustand.transaktion){
+    public void transaktionAbschließen(Person andere){
+        if(zustand == Zustand.transaktion && andere.getZustand()== Zustand.transaktion && this.paarZahl==andere.paarZahl){
             transaktionszähler++;
             //wenn Zeit abgelaufen ist, sollen die Transaktionsteilnehmer wieder neutral sein
             if(transaktionszähler>transaktionszeit){
-                setZustand(Zustand.neutral);
-                other.setZustand(Zustand.neutral);
+                //setZustand(Zustand.neutral);
+                this.setZustand(Zustand.neutral);
+                andere.setZustand(Zustand.neutral);
                 summePersonenTransaktionen=summePersonenTransaktionen-2;
             }
         }
     }
 
+    //Problem: nach einiger Zeit funktionieren werden die Punkte nicht mehr blau angezeigt
+    //bei Wkeit 1 sollte bei jeder Kollision eine Transaktion stattfinden
+    //Gefühl: wird nur blau angezeigt, wenn Punkt noch nicht in Transaktionszustand war
+    //überlegung: Punkte können nicht nochmal blau werden, wenn sie schon in Transaktion waren, was ist die Lösung?
 
 }

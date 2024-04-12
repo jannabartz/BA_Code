@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -11,14 +12,23 @@
     <content>
         <VBox minHeight="-Infinity" prefHeight="850.0" prefWidth="590.0">
             <children>
-                <Label text="Hackerauswertungen">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                    <VBox.margin>
-                        <Insets bottom="20.0" left="40.0" top="20.0" />
-                    </VBox.margin>
-                </Label>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Label text="Hackerauswertungen">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets bottom="20.0" left="40.0" top="20.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Label fx:id="resetInfo" minHeight="-Infinity" prefHeight="50.0" prefWidth="211.0">
+                            <HBox.margin>
+                                <Insets bottom="20.0" left="200.0" top="10.0" />
+                            </HBox.margin>
+                        </Label>
+                    </children>
+                </HBox>
                 <Label text="Coins des Hackers">
                     <VBox.margin>
                         <Insets left="40.0" top="20.0" />

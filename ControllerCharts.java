@@ -27,6 +27,8 @@ public class ControllerCharts {
     @FXML
     Label anteilTransaktionen;
     @FXML
+    Label resetInfo;
+    @FXML
     ScrollPane scrollPane;
     @FXML
     GridPane gridPane;
@@ -44,6 +46,10 @@ public class ControllerCharts {
     //Map für Balkendiagramm richtige Höhe und Farbe zu bestimmen
     EnumMap<Zustand, Rectangle> balkendiagramm = new EnumMap<Zustand, Rectangle>(Zustand.class);
 
+    @FXML
+    public void initialize() {
+        resetInfo.setText("Klicke auf 'Reset' und 'Start' um \n die Charts angezeigt zu bekommen");
+    }
 
     public void reset(){
 
@@ -58,7 +64,7 @@ public class ControllerCharts {
         lineChartDatenUmlauf = new XYChart.Series<>();
         lineChartUmlauf.getData().add(lineChartDatenUmlauf);
         coinsUmlauf.getChildren().clear();
-        //damit Punkte nicht angezeigt werden
+        //damit Punkte im Chart nicht angezeigt werden
         lineChartUmlauf.setCreateSymbols(false);
         lineChartUmlauf.setMaxHeight(250);
         //damit Überschrift nicht angezeigt wird
