@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="805.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ba_transaktionen.Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ba_transaktionen.Controller">
    <top>
       <Label text="Simulation Teilnehmerverhalten in Kryptonetzwerken" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -18,13 +18,13 @@
          </BorderPane.margin></Label>
    </top>
    <center>
-      <Pane fx:id="world" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <Pane fx:id="world" maxWidth="-Infinity" prefHeight="484.0" prefWidth="455.0" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </BorderPane.margin></Pane>
    </center>
    <bottom>
-      <HBox alignment="CENTER" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="45.0" prefWidth="489.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="resetB" mnemonicParsing="false" onAction="#reset" text="reset">
                <HBox.margin>
@@ -45,6 +45,9 @@
             </Button>
             <Button fx:id="chartB" mnemonicParsing="false" onAction="#chartsAnzeigen" text="Charts anzeigen" />
          </children>
+         <BorderPane.margin>
+            <Insets left="200.0" />
+         </BorderPane.margin>
       </HBox>
    </bottom>
    <padding>
@@ -54,7 +57,7 @@
       <VBox minHeight="-Infinity" prefHeight="517.0" prefWidth="188.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <Label text="Teilnehmeranzahl" />
-            <Slider fx:id="anzahlSlider" blockIncrement="50.0" majorTickUnit="20.0" max="150.0" min="50.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" value="50.0" />
+            <Slider fx:id="anzahlSlider" majorTickUnit="10.0" min="50.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" value="50.0" />
             <Label fx:id="transwkeitLabel" text="Transaktionswahrscheinlichkeit" />
             <Slider fx:id="transaktionSlider" blockIncrement="0.1" majorTickUnit="0.2" max="1.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" value="0.5" />
             <Label text="Bewegungsradius" />
@@ -99,7 +102,7 @@
             </HBox>
          </children>
          <BorderPane.margin>
-            <Insets left="5.0" top="20.0" />
+            <Insets left="15.0" top="20.0" />
          </BorderPane.margin>
       </VBox>
    </left>
