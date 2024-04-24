@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="753.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
+<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="753.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.example.ba_transaktionen.ControllerCharts">
   <content>
     <AnchorPane prefHeight="596.0" prefWidth="589.0">
          <children>
-            <VBox prefHeight="942.0" prefWidth="739.0">
+            <VBox fx:id="vboxAll" prefHeight="1642.0" prefWidth="943.0">
                <children>
                   <HBox prefHeight="67.0" prefWidth="627.0">
                      <children>
