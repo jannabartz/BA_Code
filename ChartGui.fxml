@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="753.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="com.example.ba_transaktionen.ControllerCharts">
+<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="753.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ba_transaktionen.ControllerCharts">
   <content>
     <AnchorPane prefHeight="596.0" prefWidth="589.0">
          <children>
@@ -83,7 +83,7 @@
                               <Insets bottom="10.0" left="40.0" />
                            </VBox.margin>
                         </Label>
-                        <Pane fx:id="coinsUmlauf" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="382.0">
+                        <Pane fx:id="coinsUmlauf" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="900.0">
                            <VBox.margin>
                               <Insets left="40.0" right="40.0" top="20.0" />
                            </VBox.margin>
@@ -100,7 +100,7 @@
                               <Insets bottom="10.0" left="40.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Pane fx:id="coinsDurchschnitt" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
+                        <Pane fx:id="coinsDurchschnitt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="900.0">
                            <VBox.margin>
                               <Insets left="40.0" right="40.0" top="20.0" />
                            </VBox.margin>
@@ -114,7 +114,7 @@
                               <Insets bottom="10.0" left="40.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Pane fx:id="inflation" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
+                        <Pane fx:id="inflation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="900.0">
                            <VBox.margin>
                               <Insets left="40.0" right="40.0" top="20.0" />
                            </VBox.margin>
@@ -128,7 +128,7 @@
                               <Insets bottom="10.0" left="40.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Pane fx:id="nachfrage" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
+                        <Pane fx:id="nachfrage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="900.0">
                            <VBox.margin>
                               <Insets left="40.0" right="40.0" top="20.0" />
                            </VBox.margin>
@@ -142,7 +142,7 @@
                               <Insets bottom="10.0" left="40.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Pane fx:id="leitzins" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="200.0" prefWidth="200.0">
+                        <Pane fx:id="leitzins" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="900.0">
                            <VBox.margin>
                               <Insets left="40.0" right="40.0" top="20.0" />
                            </VBox.margin>
