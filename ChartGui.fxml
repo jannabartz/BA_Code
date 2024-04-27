@@ -123,20 +123,6 @@
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <Label text="Nachfrage">
-                           <VBox.margin>
-                              <Insets bottom="10.0" left="40.0" top="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <Pane fx:id="nachfrage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="900.0">
-                           <VBox.margin>
-                              <Insets left="40.0" right="40.0" top="20.0" />
-                           </VBox.margin>
-                        </Pane>
-                     </children>
-                  </VBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
                         <Label text="Leitzins">
                            <VBox.margin>
                               <Insets bottom="10.0" left="40.0" top="10.0" />
