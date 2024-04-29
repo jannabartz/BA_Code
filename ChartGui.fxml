@@ -44,12 +44,12 @@
                            <children>
                               <Label text="Anteil Teilnehmerverhalten">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" left="40.0" />
+                                    <Insets bottom="20.0" left="40.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <Pane fx:id="anteilTeilnehmer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="193.0" prefWidth="228.0">
+                              <Pane fx:id="anteilTeilnehmer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="228.0">
                                  <VBox.margin>
-                                    <Insets left="80.0" right="30.0" top="20.0" />
+                                    <Insets left="80.0" right="30.0" />
                                  </VBox.margin>
                                  <padding>
                                     <Insets bottom="20.0" left="30.0" />
@@ -61,7 +61,7 @@
                            <children>
                               <Label text="Anteil Transaktionen">
                                  <VBox.margin>
-                                    <Insets left="80.0" />
+                                    <Insets left="80.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
                               <Label fx:id="anteilTransaktionen" alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="168.0" textAlignment="CENTER" textFill="#0d26e1">
@@ -83,7 +83,7 @@
                               <Insets bottom="10.0" left="40.0" />
                            </VBox.margin>
                         </Label>
-                        <Pane fx:id="coinsUmlauf" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="900.0">
+                        <Pane fx:id="coinsUmlauf" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0">
                            <VBox.margin>
                               <Insets left="40.0" right="40.0" top="20.0" />
                            </VBox.margin>
@@ -100,7 +100,7 @@
                               <Insets bottom="10.0" left="40.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Pane fx:id="coinsDurchschnitt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="900.0">
+                        <Pane fx:id="coinsDurchschnitt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0">
                            <VBox.margin>
                               <Insets left="40.0" right="40.0" top="20.0" />
                            </VBox.margin>
@@ -114,7 +114,7 @@
                               <Insets bottom="10.0" left="40.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Pane fx:id="inflation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="900.0">
+                        <Pane fx:id="inflation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0">
                            <VBox.margin>
                               <Insets left="40.0" right="40.0" top="20.0" />
                            </VBox.margin>
@@ -128,7 +128,7 @@
                               <Insets bottom="10.0" left="40.0" top="10.0" />
                            </VBox.margin>
                         </Label>
-                        <Pane fx:id="leitzins" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="900.0">
+                        <Pane fx:id="leitzins" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0">
                            <VBox.margin>
                               <Insets left="40.0" right="40.0" top="20.0" />
                            </VBox.margin>
