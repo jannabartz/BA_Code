@@ -4,6 +4,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Person {
 
     public static int radius = 5;
@@ -23,6 +26,8 @@ public class Person {
     public static int teilnehmerGehackt;
     //Zahl, um Personenpaare zu identifizieren, die eine Transaktion durchführen
     public static int transaktionsPaar = 0;
+    //Coins, die jede Person am Anfang hat
+    public int coinAnzahl;
 
     //Zustand des Teilnehmers
     private Zustand zustand;
@@ -40,11 +45,14 @@ public class Person {
     private int transaktionszähler = 0;
     //Zahl die jeder Person zugeordnet wird, um den Transaktionspartner zu finden
     private int paarZahl;
+    //Liste mit allen Coins, die in einer Transaktion ausgegeben werden
+    public static List<Coins> alleCoins = new ArrayList<>();
 
     public Person (Zustand zustand, Pane welt){
         this.zustand = zustand;
         this.punkt = new Punkt();
         this.position = new Position(welt);
+        this.coinAnzahl = Coins.anzahlCoins;
         //man kann den ursprung nicht gleich position setzen, da sich diese ändert
         this.ursprung = new Position(position.getX(), position.getY());
         this.kreis = new Circle(radius, zustand.getColor());
@@ -86,19 +94,24 @@ public class Person {
             //wenn zwei Punkte kollidieren, führen sie Transaktion mit Wahrscheinlichkeit von Slider aus
             //können nur Transaktion ausführen, wenn sie grade nicht in einer sind
             if(andere.getZustand()== Zustand.neutral && zustand == Zustand.neutral && zufallszahl<WkeitTransaktion){
-                setZustand(Zustand.transaktion);
-                andere.setZustand(Zustand.transaktion);
-                //System.out.println("Ich bin in Kollision");
-                if(this.paarZahl==0 && andere.paarZahl==0){
-                    System.out.println("erste Transaktion");
-                }
-                else {
-                    System.out.println("zweite Transaktion");
+                //es soll geguckt werden ob Coins zur Verfügung stehen und daraufhin soll ein neuer Coin ausgegeben werden
+                if(this.coinAnzahl!=0){
+                    //wenn Teilnehmer noch Coins hat, dann wird ein Coin an den anderen übertragen
+                    setZustand(Zustand.transaktion);
+                    andere.setZustand(Zustand.transaktion);
+                    Coins coinTransaktion = new Coins();
+                    coinTransaktion.ausgegeben = true;
+                    //coinTransaktion.besitzer = andere;
+                    //der andere Teilnehmer will Coins von dem Teilnehmer this und wird somit zum Nachfrager nach Coins
+                    Coins.nachfrageListe.add(andere);
+                    //die eine Person überträgt einen Coin an die andere Person
+                    andere.coinAnzahl++;
+                    this.coinAnzahl--;
+                    // Fügen Sie den neuen Coin zur Liste hinzu
+                    alleCoins.add(coinTransaktion);
                 }
                 this.paarZahl = transaktionsPaar;
                 andere.paarZahl = transaktionsPaar;
-                //System.out.println(this.paarZahl + " andere:" + andere.paarZahl + " zaehler:" + transaktionsPaar);
-                //System.out.println(this.getZustand() + " andere:" + andere.getZustand());
                 transaktionsPaar++;
                 //damit Anteil der Personen berechnet werden kann, die in einer Transaktion sind
                 summePersonenTransaktionen = summePersonenTransaktionen +2;
@@ -149,6 +162,13 @@ public class Person {
                 this.setZustand(Zustand.neutral);
                 andere.setZustand(Zustand.neutral);
                 summePersonenTransaktionen=summePersonenTransaktionen-2;
+
+                //ist die Transaktion abgeschlossen, ist die andere Person kein Nachfrager mehr
+                Coins.nachfrageListe.remove(andere);
+                this.transaktionszähler = 0;
+                andere.transaktionszähler = 0;
+                this.paarZahl = 0;
+                andere.paarZahl = 0;
             }
         }
     }
