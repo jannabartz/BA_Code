@@ -1,10 +1,14 @@
 package com.example.ba_transaktionen;
 
+import com.example.ba_transaktionen.klassen.Coins;
+import com.example.ba_transaktionen.klassen.Zentralbank;
 import com.example.ba_transaktionen.klassen.Person;
 import com.example.ba_transaktionen.klassen.Simulation;
 import javafx.animation.AnimationTimer;
+import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -35,15 +39,22 @@ public class Controller {
     @FXML
     Slider transaktionSlider;
     @FXML
-    Label transwkeitLabel;
-    @FXML
     Slider abstandSlider;
+    @FXML
+    Slider coinSlider;
+    @FXML
+    Slider euroSlider;
+    @FXML
+    Slider dollarSlider;
+    @FXML
+    Label transwkeitLabel;
     @FXML
     TextField tickText;
     @FXML
     Pane world;
 
     Simulation simulation;
+    Zentralbank EZB;
     //Anzahl der Punkte bzw. Teilnehmer
     int Teilnehmeranzahl = 50;
     //Wahrscheinlichkeit, dass eine Transaktion stattfindet oder ein Hacker erfolgreich ist
@@ -122,6 +133,24 @@ public class Controller {
                 setBewegungsradius();
             }
         });
+        coinSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                setCoins();
+            }
+        });
+        euroSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                setEuroLeitzins();
+            }
+        });
+        dollarSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
+                setDollarLeitzins();
+            }
+        });
         uhr = new SimulationsUhr();
         world.setBackground(new Background(new BackgroundFill(Color.WHITE,null,null)));
     }
@@ -141,7 +170,11 @@ public class Controller {
         setAnzahl();
         setWkeitTransHack();
         setBewegungsradius();
+        setCoins();
+        setEuroLeitzins();
+        setDollarLeitzins();
         simulation = new Simulation(world, Teilnehmeranzahl, hackerSzeneAktiv);
+        EZB = new Zentralbank();
         if(chartFenster!=null) {
             //wichtige Abfrage, da ansonsten chartfenster (vor drücken des button) noch nicht initialisiert wurde und es eine NullPointerException gibt
             chartFenster.reset();
@@ -175,6 +208,12 @@ public class Controller {
         Person.bewegungsradius = (int) abstandSlider.getValue();
     }
 
+    public void setCoins() { Coins.anzahlCoins = (int) coinSlider.getValue(); }
+
+    public void setEuroLeitzins(){ EZB.leitzinsEuro = euroSlider.getValue(); }
+
+    public void setDollarLeitzins(){ EZB.leitzinsDollar = dollarSlider.getValue(); }
+
     @FXML
     public void start(){
         uhr.start();
@@ -187,21 +226,37 @@ public class Controller {
         disableButton(false,true,false);
     }
 
-    //Methode, die dauerhaft während des Laufens der Simulation aufgerufen wird
     @FXML
-    public void step(){
-        simulation.bewegen();
-        simulation.prüfeKollision(WkeitTransHackErfolg, hackerSzeneAktiv);
-        simulation.transaktionAbschließen();
-        simulation.malen();
-        uhr.tick();
-        tickText.setText(""+ uhr.getTicks());
-        if(chartFenster!=null) {
-            chartFenster.drawCharts(simulation, Teilnehmeranzahl, uhr);
-        }
-        if(hackerFenster!=null){
-            hackerFenster.drawCharts(simulation, Teilnehmeranzahl, uhr);
-        }
+    public void step() {
+
+        //überlegen wie vorher und Task wegmachen
+        Task<Void> task = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                simulation.bewegen();
+                simulation.prüfeKollision(WkeitTransHackErfolg, hackerSzeneAktiv);
+                simulation.transaktionAbschließen();
+                EZB.zinsDevelopmentEuro();
+                EZB.zinsDevelopmentDollar();
+                uhr.tick();
+                return null;
+            }
+        };
+
+        task.setOnSucceeded(event -> {
+            Platform.runLater(() -> {
+                simulation.malen();
+                tickText.setText("" + uhr.getTicks());
+                if (chartFenster != null) {
+                    chartFenster.drawCharts(simulation, Teilnehmeranzahl, uhr, EZB);
+                }
+                if (hackerFenster != null) {
+                    hackerFenster.drawCharts(simulation, Teilnehmeranzahl, uhr);
+                }
+            });
+        });
+
+        new Thread(task).start();
     }
 
     /**
