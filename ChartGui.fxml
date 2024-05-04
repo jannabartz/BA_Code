@@ -10,133 +10,133 @@
 <?import javafx.scene.text.Font?>
 
 <ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="733.0" prefWidth="753.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ba_transaktionen.ControllerCharts">
-    <content>
-        <AnchorPane prefHeight="596.0" prefWidth="589.0">
-            <children>
-                <VBox fx:id="vboxAll" prefHeight="1642.0" prefWidth="943.0">
-                    <children>
-                        <HBox prefHeight="67.0" prefWidth="627.0">
-                            <children>
-                                <Label text="Simulationsauswertung">
-                                    <font>
-                                        <Font size="18.0" />
-                                    </font>
-                                    <opaqueInsets>
-                                        <Insets />
-                                    </opaqueInsets>
-                                    <HBox.margin>
-                                        <Insets left="30.0" top="40.0" />
-                                    </HBox.margin>
-                                </Label>
-                                <Label prefHeight="34.0" prefWidth="267.0" text="Bitte 'Reset' drücken, zum Anzeigen der Charts">
-                                    <HBox.margin>
-                                        <Insets left="200.0" top="40.0" />
-                                    </HBox.margin>
-                                </Label>
-                            </children>
-                            <VBox.margin>
-                                <Insets bottom="30.0" />
-                            </VBox.margin>
-                        </HBox>
-                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="735.0">
-                            <children>
-                                <VBox prefHeight="200.0" prefWidth="100.0">
-                                    <children>
-                                        <Label text="Anteil Teilnehmerverhalten">
-                                            <VBox.margin>
-                                                <Insets bottom="20.0" left="40.0" top="10.0" />
-                                            </VBox.margin>
-                                        </Label>
-                                        <Pane fx:id="anteilTeilnehmer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="228.0">
-                                            <VBox.margin>
-                                                <Insets left="80.0" right="30.0" />
-                                            </VBox.margin>
-                                            <padding>
-                                                <Insets bottom="20.0" left="30.0" />
-                                            </padding>
-                                        </Pane>
-                                    </children>
-                                </VBox>
-                                <VBox fx:id="vboxAT" prefHeight="114.0" prefWidth="230.0">
-                                    <children>
-                                        <Label text="Anteil Transaktionen">
-                                            <VBox.margin>
-                                                <Insets left="80.0" top="10.0" />
-                                            </VBox.margin>
-                                        </Label>
-                                        <Label fx:id="anteilTransaktionen" alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="168.0" textAlignment="CENTER" textFill="#0d26e1">
-                                            <VBox.margin>
-                                                <Insets left="80.0" top="40.0" />
-                                            </VBox.margin>
-                                            <font>
-                                                <Font name="System Bold" size="18.0" />
-                                            </font>
-                                        </Label>
-                                    </children>
-                                </VBox>
-                            </children>
-                        </HBox>
+  <content>
+    <AnchorPane prefHeight="596.0" prefWidth="589.0">
+         <children>
+            <VBox fx:id="vboxAll" prefHeight="1642.0" prefWidth="943.0">
+               <children>
+                  <HBox prefHeight="67.0" prefWidth="627.0">
+                     <children>
+                        <Label text="Simulationsauswertung">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets left="30.0" top="40.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label prefHeight="34.0" prefWidth="267.0" text="Bitte 'Reset' drücken, zum Anzeigen der Charts">
+                           <HBox.margin>
+                              <Insets left="200.0" top="40.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="735.0">
+                     <children>
                         <VBox prefHeight="200.0" prefWidth="100.0">
-                            <children>
-                                <Label text="Coins im Umlauf">
-                                    <VBox.margin>
-                                        <Insets bottom="10.0" left="40.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <Pane fx:id="coinsUmlauf" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0">
-                                    <VBox.margin>
-                                        <Insets left="40.0" right="40.0" top="20.0" />
-                                    </VBox.margin>
-                                </Pane>
-                            </children>
-                            <VBox.margin>
-                                <Insets top="20.0" />
-                            </VBox.margin>
+                           <children>
+                              <Label text="Anteil Teilnehmerverhalten">
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" left="40.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Pane fx:id="anteilTeilnehmer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="228.0">
+                                 <VBox.margin>
+                                    <Insets left="80.0" right="30.0" />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="20.0" left="30.0" />
+                                 </padding>
+                              </Pane>
+                           </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                            <children>
-                                <Label text="Währungskurs">
-                                    <VBox.margin>
-                                        <Insets bottom="10.0" left="40.0" top="10.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <Pane fx:id="coinsDurchschnitt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0">
-                                    <VBox.margin>
-                                        <Insets left="40.0" right="40.0" top="20.0" />
-                                    </VBox.margin>
-                                </Pane>
-                            </children>
+                        <VBox fx:id="vboxAT" prefHeight="114.0" prefWidth="230.0">
+                           <children>
+                              <Label text="Anteil Transaktionen">
+                                 <VBox.margin>
+                                    <Insets left="80.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="anteilTransaktionen" alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="168.0" textAlignment="CENTER" textFill="#0d26e1">
+                                 <VBox.margin>
+                                    <Insets left="80.0" top="40.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                            <children>
-                                <Label text="Inflation">
-                                    <VBox.margin>
-                                        <Insets bottom="10.0" left="40.0" top="10.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <Pane fx:id="inflation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0">
-                                    <VBox.margin>
-                                        <Insets left="40.0" right="40.0" top="20.0" />
-                                    </VBox.margin>
-                                </Pane>
-                            </children>
-                        </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                            <children>
-                                <Label text="Leitzins">
-                                    <VBox.margin>
-                                        <Insets bottom="10.0" left="40.0" top="10.0" />
-                                    </VBox.margin>
-                                </Label>
-                                <Pane fx:id="leitzins" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0">
-                                    <VBox.margin>
-                                        <Insets left="40.0" right="40.0" top="20.0" />
-                                    </VBox.margin>
-                                </Pane>
-                            </children>
-                        </VBox>
-                    </children>
-                </VBox>
-            </children></AnchorPane>
-    </content>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Coins im Umlauf">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="40.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Pane fx:id="coinsUmlauf" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0">
+                           <VBox.margin>
+                              <Insets left="40.0" right="40.0" top="20.0" />
+                           </VBox.margin>
+                        </Pane>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Währungskurs">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="40.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Pane fx:id="coinsDurchschnitt" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0">
+                           <VBox.margin>
+                              <Insets left="40.0" right="40.0" top="20.0" />
+                           </VBox.margin>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Inflation">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="40.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Pane fx:id="inflation" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0">
+                           <VBox.margin>
+                              <Insets left="40.0" right="40.0" top="20.0" />
+                           </VBox.margin>
+                        </Pane>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label text="Leitzins Euro und Dollar,   Euro = lila, Dollar = türkis">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="40.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Pane fx:id="leitzins" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="900.0">
+                           <VBox.margin>
+                              <Insets left="40.0" right="40.0" top="20.0" />
+                           </VBox.margin>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children></AnchorPane>
+  </content>
 </ScrollPane>
