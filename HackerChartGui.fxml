@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="scrollPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ba_transaktionen.ControllerHackerCharts">
+<ScrollPane fx:id="scrollPane" prefHeight="600.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ba_transaktionen.ControllerHackerCharts">
    <content>
       <VBox>
          <children>
