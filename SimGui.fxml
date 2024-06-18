@@ -63,7 +63,7 @@
             <Label text="Bewegungsradius" />
             <Slider fx:id="abstandSlider" majorTickUnit="50.0" max="200.0" min="10.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" value="200.0" />
             <Label text="Startwert Coins" />
-            <Slider fx:id="coinSlider" majorTickUnit="10.0" max="50.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" />
+            <Slider fx:id="coinSlider" majorTickUnit="10.0" max="50.0" min="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" />
             <Label text="Startwert Leitzins Euro in %" />
             <Slider fx:id="euroSlider" blockIncrement="0.0" majorTickUnit="1.0" max="4.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" />
             <Label text="Startwert Leitzins Dollar in %" />
